@@ -1,0 +1,29 @@
+<h1>Create User</h1>
+    
+<form name="userForm" role="form" novalidate>
+
+    <div class="form-group" ng-class="{ 'has-error': userForm.user_id.$dirty && userForm.user_id.$invalid }">
+        <label for="user_id" class="control-label">User id (User code): <span class="red">*</span></label>
+        <input type="text" ng-model="user.user_id" name="user_id" placeholder="user_id" class="form-control" required>
+        <span class="help-block" ng-show="userForm.user_id.$dirty && userForm.user_id.$error.required">Required</span>
+    </div>                
+    
+    <div class="form-group" ng-class="{ 'has-error': userForm.name.$dirty && userForm.name.$invalid }">
+        <label for="name" class="control-label">Name: <span class="red">*</span></label>
+        <input type="text" ng-model="user.name" name="name" placeholder="name" class="form-control" required>
+        <span class="help-block" ng-show="userForm.name.$dirty && userForm.name.$error.required">Required</span>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': userForm.avatar_img.$invalid }">
+        <label for="avatar_img" class="control-label">Avatar image:</label>
+        <input type="text" ng-model="user.avatar_img" name="avatar_img" placeholder="avatar_img" class="form-control">
+    </div>
+    
+    <br>
+    
+    <button ng-click="createUser()" ng-class="{ disabled: userForm.$invalid }" class="btn btn-primary">Save</button>
+    <button ng-click="goBack()" class="btn btn-default pull-right">
+        <span class="glyphicon glyphicon-arrow-left"></span> Back
+    </button>    
+
+</form>

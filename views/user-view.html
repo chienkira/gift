@@ -1,0 +1,33 @@
+<h1>{{user.name}}</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>{{user.id}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>User id(user code)</td>
+            <td>{{user.user_id}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <td>Avatar image</td>
+            <td>{{user.avatar_img}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<a ng-href="/user/edit/{{user.id}}" class="btn btn-default btn-primary margin-right-10">
+    <span class="glyphicon glyphicon-pencil"></span> Edit
+</a>
+
+<button ng-click="goBack()" class="btn btn-default pull-right">
+    <span class="glyphicon glyphicon-arrow-left"></span> Back
+</button>
+
