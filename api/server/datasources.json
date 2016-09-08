@@ -1,0 +1,14 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "dbMysql": {
+    "host": "kiradev.me",
+    "database": "gift_reservation",
+    "password": "pass",
+    "name": "dbMysql",
+    "user": "root",
+    "connector": "mysql"
+  }
+}
