@@ -15,34 +15,25 @@
 
         return service;
 
-        function Login(username, password, callback) {
+        function Login(username, callback) {
 
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
             $timeout(function () {
                 var response;
                 UserService.GetByUsername(username)
                     .then(function (user) {
-                        if (user !== null && user.password === password) {
+                        if (user !== null) {
                             response = { success: true };
                         } else {
                             response = { success: false, message: 'Username or password is incorrect' };
                         }
                         callback(response);
                     });
-            }, 1000);
-
-            /* Use this for real authentication
-             ----------------------------------------------*/
-            //$http.post('/api/authenticate', { username: username, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
+            }, 500);
 
         }
 
-        function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+        function SetCredentials(username) {
+            var authdata = Base64.encode(username);
 
             $rootScope.globals = {
                 currentUser: {
