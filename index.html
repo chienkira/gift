@@ -1,50 +1,38 @@
 <!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8"/>
+  <base href="/gift/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chienkira | Gift reservation</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+  <link href="app-content/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="wrap" class="container">
+  <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+       ng-if="flash" ng-bind="flash.message"></div>
+  <div ng-view></div>
+</div>
 
-<html lang="en" ng-app="myApp">
+<div id="footer" class="container">
+  <p>&copy; 2016 | <a href="https://www.facebook.com/chienkira"
+                     onclick="ga('send', 'event', 'Links', 'open', 'Facebook By who?');">By ChienKira</a> &nbsp;&nbsp;
+    <span class="f_right">rev 2016.09.08.001</span></p>
+</div>
 
-    <head>
-    
-        <meta charset="utf8">
-        <base href="/gift/">
-        
-        <title ng-bind="title | title"></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <!-- lt IE 9
-            <script src="lib/bootstrap/assets/js/html5shiv.js"></script>
-            <script src="lib/bootstrap/assets/js/respond.min.js"></script>
-        -->
-    </head>
-    
-    <body>
-    
-    <div id="wrap" class="container">
-      
-        <div ng-view></div>
-        
-        <div id="push"></div>
-        
-    </div>
-    
-    <div id="footer" class="container">
-        <p copyright> | <a href="https://www.facebook.com/chienkira" onclick="ga('send', 'event', 'Links', 'open', 'Facebook By who?');">By ChienKira</a> &nbsp;&nbsp;
-        <span class="f_right">rev 2016.09.08.001</span></p>
-    </div>
-    
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-resource.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js"></script>
-    
-    <script src="js/controllers.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/app.js">   </script>
-    
-    </body>
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
 
+<script src="app.js"></script>
+<script src="app-services/authentication.service.js"></script>
+<script src="app-services/flash.service.js"></script>
+<script src="app-services/user.service.js"></script>
+
+<script src="home/home.controller.js"></script>
+<script src="login/login.controller.js"></script>
+<script src="register/register.controller.js"></script>
+</body>
 </html>
