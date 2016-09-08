@@ -16,8 +16,8 @@ var app = angular.module('myApp', [
 app.config(function($routeProvider, $locationProvider) {
    
     $routeProvider
-        .when('/',                  { templateUrl: 'views/index.html', controller: 'IndexController', title: 'Home' })
-        .when('/users',             { templateUrl: 'views/users.html', controller: 'UsersController', title: 'Users' })      
+        .when('/',                  { templateUrl: 'views/home.html', controller: 'IndexController', title: 'Home' })
+        .when('/users',             { templateUrl: 'views/users.html', controller: 'UsersController', title: 'Users' })
         .when('/user/create',       { templateUrl: 'views/user-create.html', controller: 'UserController', title: 'Create User' })
         .when('/user/edit/:id',     { templateUrl: 'views/user-edit.html', controller: 'UserController', title: 'Edit User' })                                                                             
         .when('/user/view/:id',     { templateUrl: 'views/user-view.html', controller: 'UserController', title: 'View User' })           

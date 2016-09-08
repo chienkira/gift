@@ -14,18 +14,6 @@ app.controller('IndexController', function($http, $scope, applicationName) {
        
     $scope.applicationName = applicationName; 
     
-    // For some reason $resource won't work here, so went for $http.get()
-    $http.get('/api/users')
-        .success(
-            function(data, status, headers, config) {
-            
-                $scope.users = data;
-            })
-        .error(
-            function(data, status, headers, config) {
-            
-                $scope.status = status;
-            });       
 });
 
 // Controller for Users page
