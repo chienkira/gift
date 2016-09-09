@@ -40,5 +40,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "Reveicer": {
+    "dataSource": "dbMysql",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
