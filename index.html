@@ -6,30 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chienkira | Gift reservation</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-  <link href="app-content/styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <!--[if lte IE 8]>
+  <script src="app-content/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="app-content/css/main.css"/>
+  <link href="app-content/css/login.css" rel="stylesheet"/>
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="app-content/css/ie8.css"/><![endif]-->
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" href="app-content/css/ie9.css"/><![endif]-->
 </head>
-<body>
-<div id="wrap" class="container">
-  <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
-       ng-if="flash" ng-bind="flash.message"></div>
-  <div ng-view></div>
-</div>
+<body class="left-sidebar">
 
-<div id="footer" class="container">
-  <p>&copy; 2016 | <a href="https://www.facebook.com/chienkira"
-                     onclick="ga('send', 'event', 'Links', 'open', 'Facebook By who?');">By ChienKira</a> &nbsp;&nbsp;
-    <span class="f_right">rev 2016.09.08.001</span></p>
+<div id="page-wrapper">
+  <div class="flash-message" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+       ng-if="flash" ng-bind="flash.message"></div>
+
+  <div ng-view></div>
+
+  <footer id="footer">
+
+    <p>&copy; 2016 | <a href="http://kiradev.me"
+                        onclick="ga('send', 'event', 'Links', 'open', 'Facebook By who?');">By ChienKira</a> &nbsp;&nbsp;
+      <span class="f_right">rev 2016.09.08.001</span></p>
+
+  </footer>
 </div>
 
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-<script src="//code.angularjs.org/1.2.20/angular.js"></script>
-<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
-<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular.min.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular-route.min.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.min.js"></script>
 
 <script src="app.js"></script>
 <script src="app-services/authentication.service.js"></script>
 <script src="app-services/flash.service.js"></script>
 <script src="app-services/user.service.js"></script>
+<script src="app-services/gift.service.js"></script>
+<script src="app-services/reservation.service.js"></script>
 
 <script src="home/home.controller.js"></script>
 <script src="login/login.controller.js"></script>

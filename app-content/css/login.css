@@ -1,59 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-/* The html and body elements cannot have any padding or margin */
-html,
-body {
-    height: 100%; /* for sticky footer */
-}
-
-/* Wrapper for page content to push down footer */
-#wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -20px; /* must equal footer height */
-}
-
-#push,
-#footer {
-    height: 20px;
-}
-
-#footer {
-    padding: 0 20px;
-}
-
-.margin-left-10 {
-    margin-left: 10px;
-}
-
-.margin-right-10 {
-    margin-right: 10px;
-}
-
-.red, a.red {
-    color: #d2322d
-}
-
-.blue, a.blue {
-    color: #428bca
-}
-
-.green, a.green {
-    color: #47a447
-}
-
-a.glyphicon {
-    cursor: pointer;
-}
-
-.pull-up {
-    margin: -45px 0 15px 0
-}
-
-
-body {
+#body-login {
     background: #2b3d6b;
-    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     color: #fff;
 }
@@ -119,10 +65,6 @@ body {
     margin-top: 40px;
 }
 
-.checkbox {
-    font-size: 12px;
-}
-
 .input-group-addon {
     background-color: #2db456;
     border: none;
@@ -131,16 +73,13 @@ body {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
 }
 
-.header-ribbon {
-    background-color: #355d98;
-    width: 100%;
-    height: 5px;
-    display: block;
-}
-
 .login-panel-footer {
     clear: both;
     vertical-align: bottom;
     width: 100%;
     height: 25px;
+}
+
+.alert {
+    margin-bottom: 0;
 }

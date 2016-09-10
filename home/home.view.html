@@ -1,11 +1,87 @@
-﻿<h1>Hi {{vm.user.firstName}}!</h1>
-<p>You're logged in!!</p>
-<h3>All registered users:</h3>
-<ul>
-    <li ng-repeat="user in vm.allUsers">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a href="#" ng-click="vm.deleteUser(user.id)">Delete</a>
+﻿<header>
+  <nav id="nav">
+    <li>
+      <button class="mdl-button mdl-js-button mdl-button--accent" onclick="javascript:location.href='#/login'">
+        ログアウト
+      </button>
     </li>
-</ul>
-<p>&nbsp;</p>
-<p><a href="#/login" class="btn btn-primary">Logout</a></p>
+    <li><img class="mdl-chip__contact" src="{{vm.user.avatarImg}}"></img></li>
+  </nav>
+</header>
+<article id="main">
+  <section class="wrapper style4 container">
+    <div class="row 150%">
+
+      <div class="4u 12u(narrower)">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Two Line List with secondary info and action -->
+          <ul class="demo-list-two mdl-list">
+            <li class="mdl-list__item mdl-list__item--two-line" ng-repeat="user in vm.allUsers">
+              <span class="mdl-list__item-primary-content">
+                <img class="mdl-chip__contact" src="{{user.avatarImg}}"></img>
+                <span>{{user.name}}さん</span>
+                <span class="mdl-list__item-sub-title">{{user.giftStatus}}</span>
+              </span>
+              <span class="mdl-list__item-secondary-content" ng-if="user.name==vm.user.name">
+                <span class="mdl-list__item-secondary-info">取消</span>
+                <a class="mdl-list__item-secondary-action" ng-click="vm.delReservation(user.reservation.id)"><i class="material-icons">delete</i></a>
+              </span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="8u 12u(narrower) important(narrower)">
+        <!-- Content -->
+        <div class="content">
+          <section>
+            <h3>ご希望のものをお選びくださいませ！</h3>
+
+            <!-- Wide card with share menu button -->
+            <style>
+              .card {
+                padding: 5px 0 10px 0;
+              }
+
+              .demo-card-wide.mdl-card {
+                width: 512px;
+              }
+
+              .demo-card-wide > .mdl-card__title {
+                color: #fff;
+                height: 176px;
+                background: center / cover;
+              }
+
+              .demo-card-wide > .mdl-card__menu {
+                color: #fff;
+              }
+            </style>
+
+            <div ng-repeat="gift in vm.allGifts" class="card">
+              <h4>＃{{$index + 1}}　{{gift.title}}</h4>
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title" style="background-image: url('{{gift.imagesImg}}')">
+                  <h2 class="mdl-card__title-text">{{gift.title}}</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  {{gift.description}}
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+                          ng-click="vm.addReservation(gift.giftId)">
+                    <a class="mdl-list__item-secondary-action"><i class="material-icons">star</i></a>
+                  </button>
+                  欲しい
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>

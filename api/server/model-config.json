@@ -41,7 +41,7 @@
     "$promise": {},
     "$resolved": true
   },
-  "Reveicer": {
+  "Receiver": {
     "dataSource": "dbMysql",
     "public": true,
     "$promise": {},

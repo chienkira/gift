@@ -20,12 +20,7 @@
             $timeout(function () {
                 var response;
                 UserService.GetByUsername(username)
-                    .then(function (user) {
-                        if (user !== null) {
-                            response = { success: true };
-                        } else {
-                            response = { success: false, message: 'Username or password is incorrect' };
-                        }
+                    .then(function (response) {
                         callback(response);
                     });
             }, 500);
@@ -37,7 +32,7 @@
 
             $rootScope.globals = {
                 currentUser: {
-                    username: username,
+                    name: username,
                     authdata: authdata
                 }
             };

@@ -1,5 +1,5 @@
 {
-  "name": "Reservation",
+  "name": "Receiver",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,9 +7,25 @@
   },
   "mysql": {
     "schema": "gift_reservation",
-    "table": "reservation"
+    "table": "reveicer"
   },
   "properties": {
+    "avatarImg": {
+      "type": "String",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "avatar_img",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
     "id": {
       "type": "Number",
       "id": true,
@@ -27,30 +43,14 @@
       },
       "_selectable": false
     },
-    "giftId": {
+    "name": {
       "type": "String",
       "required": true,
-      "length": 10,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gift_id",
-        "dataType": "varchar",
-        "dataLength": 10,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "requestedTime": {
-      "type": "String",
-      "required": false,
       "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "requested_time",
+        "columnName": "name",
         "dataType": "varchar",
         "dataLength": 50,
         "dataPrecision": null,
