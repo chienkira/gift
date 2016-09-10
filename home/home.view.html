@@ -1,7 +1,22 @@
-﻿<header>
+﻿<style>
+  .flash-message {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    position: fixed;
+    font-size: 15px;
+    z-index: 999;
+  }
+
+  .mdl-list__item--two-line {
+    height: 62px;
+  }
+</style>
+<header>
   <nav id="nav">
     <li>
-      <button class="mdl-button mdl-js-button mdl-button--accent" onclick="javascript:location.href='#/login'">
+      <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--colored"
+              onclick="javascript:location.href='#/login'">
         ログアウト
       </button>
     </li>
@@ -12,7 +27,7 @@
   <section class="wrapper style4 container">
     <div class="row 150%">
 
-      <div class="4u 12u(narrower)">
+      <div class="left-column">
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Two Line List with secondary info and action -->
@@ -20,12 +35,13 @@
             <li class="mdl-list__item mdl-list__item--two-line" ng-repeat="user in vm.allUsers">
               <span class="mdl-list__item-primary-content">
                 <img class="mdl-chip__contact" src="{{user.avatarImg}}"></img>
-                <span>{{user.name}}さん</span>
+                <span>{{user.name}}</span>
                 <span class="mdl-list__item-sub-title">{{user.giftStatus}}</span>
               </span>
               <span class="mdl-list__item-secondary-content" ng-if="user.name==vm.user.name">
                 <span class="mdl-list__item-secondary-info">取消</span>
-                <a class="mdl-list__item-secondary-action" ng-click="vm.delReservation(user.reservation.id)"><i class="material-icons">delete</i></a>
+                <a class="mdl-list__item-secondary-action" ng-click="vm.delReservation(user.reservation.id)"><i
+                    class="material-icons">delete</i></a>
               </span>
             </li>
           </ul>
@@ -33,35 +49,14 @@
         </div>
       </div>
 
-      <div class="8u 12u(narrower) important(narrower)">
+      <div class="right-column">
         <!-- Content -->
         <div class="content">
           <section>
             <h3>ご希望のものをお選びくださいませ！</h3>
 
-            <!-- Wide card with share menu button -->
-            <style>
-              .card {
-                padding: 5px 0 10px 0;
-              }
-
-              .demo-card-wide.mdl-card {
-                width: 512px;
-              }
-
-              .demo-card-wide > .mdl-card__title {
-                color: #fff;
-                height: 176px;
-                background: center / cover;
-              }
-
-              .demo-card-wide > .mdl-card__menu {
-                color: #fff;
-              }
-            </style>
-
             <div ng-repeat="gift in vm.allGifts" class="card">
-              <h4>＃{{$index + 1}}　{{gift.title}}</h4>
+              <h4>＃{{$index + 1}}　{{gift.title}}　<img src="{{gift.imagesImg}}" height="25px" data-action="zoom"/></h4>
               <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title" style="background-image: url('{{gift.imagesImg}}')">
                   <h2 class="mdl-card__title-text">{{gift.title}}</h2>

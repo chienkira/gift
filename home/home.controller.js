@@ -36,6 +36,10 @@
                 .then(function (users) {
                     vm.allUsers = users;
                     loadAllReservation();
+                    vm.allUsers.forEach(function (user) {
+                       if(user.name != "Chien" && user.name != "chien" && user.name != "チェン")
+                           user.name += "さん";
+                    });
                 });
         }
 
@@ -88,9 +92,9 @@
                     ReservationService.Create(reservation)
                         .then(function (response) {
                             if (response.success) {
-                                FlashService.Success("ありがとうございます。ご希望お預かり致しました。");
+                                FlashService.Success("ありがとうございます。リクエストをお預かり致しました。");
                             } else {
-                                FlashService.Error("予想外のエラーが発生したので、もう一度やり直してみください。");
+                                FlashService.Error("予想外のエラーが発生したので、もう一度やり直してみてください。");
                             }
                             loadAllReservation();
                         });
