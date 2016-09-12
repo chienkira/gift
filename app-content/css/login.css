@@ -83,3 +83,10 @@
 .alert {
     margin-bottom: 0;
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .login-panel {
+        margin-top: 70px;
+    }
+
+}

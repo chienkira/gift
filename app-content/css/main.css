@@ -47,6 +47,11 @@ body {
     -webkit-text-size-adjust: none;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
 /* Box Model */
 
 *, *:before, *:after {
@@ -2106,6 +2111,7 @@ footer > :last-child {
 .right-column {
     margin-left: 25%;
     min-height: 100%;
+    padding-top: 5px;
 }
 
 .card {

@@ -28,6 +28,8 @@
             UserService.GetByUsername($rootScope.globals.currentUser.name)
                 .then(function (user) {
                     vm.user = user[0];
+                    if(vm.user.name != "Chien" && vm.user.name != "chien" && vm.user.name != "チェン")
+                        vm.user.name += "さん";
                 });
         }
 

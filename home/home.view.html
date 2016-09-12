@@ -54,7 +54,6 @@
         <div class="content">
           <section>
             <h3>ご希望のものをお選びくださいませ！</h3>
-
             <div ng-repeat="gift in vm.allGifts" class="card">
               <h4>＃{{$index + 1}}　{{gift.title}}　<img src="{{gift.imagesImg}}" height="25px" data-action="zoom"/></h4>
               <div class="demo-card-wide mdl-card mdl-shadow--2dp">
@@ -73,6 +72,7 @@
                 </div>
               </div>
             </div>
+            <h6>※ 画像はイメージです。</h6>
           </section>
         </div>
       </div>

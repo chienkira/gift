@@ -43,7 +43,7 @@
             };
             $timeout(function() {
                 clearFlashMessage();
-            }, 2000)
+            }, 4000)
         }
 
         function Error(message, keepAfterLocationChange) {
@@ -54,7 +54,7 @@
             };
             $timeout(function() {
                 clearFlashMessage();
-            }, 2000)
+            }, 4000)
         }
     }
 
