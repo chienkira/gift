@@ -2102,7 +2102,7 @@ footer > :last-child {
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 350px;
+    min-width: 400px;
     width: 25%;
     height: 100%;
     overflow-y: auto;

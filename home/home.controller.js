@@ -59,7 +59,7 @@
                     if(vm.allUsers) {
                         vm.allUsers.forEach(function(user) {
                             // reset reservation info
-                            user.giftStatus = "未選択";
+                            user.giftStatus = "";
                             user.reservation = null;
                             user.gift = null;
                             // re-set info
@@ -68,13 +68,18 @@
                                    user.reservation = reservation;
                                    vm.allGifts.forEach(function(gift){
                                        if(gift.giftId == reservation.giftId) {
-                                           user.giftStatus = gift.title;
+                                           user.giftStatus += "｢"+gift.title + "｣と";
                                            user.gift = gift;
                                        }
                                    });
-                                   user.giftStatus += "が欲しいです。";
                                }
                             });
+                            if(user.giftStatus != "") {
+                                user.giftStatus = user.giftStatus.replace(/と*$/, "") ;
+                                user.giftStatus += "が欲しい";
+                            } else {
+                                user.giftStatus = "未選択";
+                            }
                         });
                     }
                 });
@@ -87,9 +92,11 @@
 
             ReservationService.GetByReservation(reservation)
                 .then(function (response) {
-                    // Delete if his/her request is existing already
+                    // Delete all his/her request if it's existing already
                     if (response.success && response.length > 0) {
-                        ReservationService.Delete(response[0].id);
+                        response.forEach(function(res) {
+                            ReservationService.Delete(res.id);
+                        });
                     }
                     ReservationService.Create(reservation)
                         .then(function (response) {
@@ -103,11 +110,21 @@
                 });
         }
 
-        function delReservation(rid) {
-            ReservationService.Delete(rid)
-                .then(function (res) {
-                    loadAllReservation();
-                    FlashService.Success("リクエストが取り消されました。");
+        function delReservation() {
+            var reservation = new Object();
+            reservation.receiverId = vm.user.receiverId;
+            ReservationService.GetByReservation(reservation)
+                .then(function (response) {
+                    // Delete all his/her existing requests
+                    if (response.success && response.length > 0) {
+                        response.forEach(function(res) {
+                            ReservationService.Delete(res.id)
+                                .then(function (res) {
+                                    loadAllReservation();
+                                    FlashService.Success("リクエストが取り消されました。");
+                                });
+                        });
+                    }
                 });
         }
     }

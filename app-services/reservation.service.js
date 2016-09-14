@@ -28,7 +28,11 @@
         }
 
         function GetByReservation(reservation) {
-            return $http.get(api_url + '/Reservations?filter[where][receiverId]=' + reservation.receiverId).then(handleSuccess, handleError('Error getting reservation by id'));
+            if(reservation.giftId && reservation.giftId != "") {
+                return $http.get(api_url + '/Reservations?filter[where][and][0][receiverId]='+reservation.receiverId+'&filter[where][and][1][giftId]=' + reservation.giftId).then(handleSuccess, handleError('Error getting reservation by id'));
+            } else {
+                return $http.get(api_url + '/Reservations?filter[where][receiverId]=' + reservation.receiverId).then(handleSuccess, handleError('Error getting reservation by id'));
+            }
         }
 
         function Create(reservation) {

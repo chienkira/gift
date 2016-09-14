@@ -36,11 +36,11 @@
               <span class="mdl-list__item-primary-content">
                 <img class="mdl-chip__contact" src="{{user.avatarImg}}"></img>
                 <span>{{user.name}}</span>
-                <span class="mdl-list__item-sub-title">{{user.giftStatus}}</span>
+                <span class="mdl-list__item-sub-title" style="word-wrap: break-word; width: 280px;">{{user.giftStatus}}</span>
               </span>
               <span class="mdl-list__item-secondary-content" ng-if="user.name==vm.user.name">
                 <span class="mdl-list__item-secondary-info">取消</span>
-                <a class="mdl-list__item-secondary-action" ng-click="vm.delReservation(user.reservation.id)"><i
+                <a class="mdl-list__item-secondary-action" ng-click="vm.delReservation()"><i
                     class="material-icons">delete</i></a>
               </span>
             </li>
