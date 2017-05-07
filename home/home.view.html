@@ -63,9 +63,8 @@
                 <div class="mdl-card__supporting-text">
                   {{gift.description}}
                 </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
-                          ng-click="vm.addReservation(gift.giftId)">
+                <div class="mdl-button mdl-card__actions mdl-card--border" ng-click="vm.addReservation(gift.giftId)" style="cursor: hand;">
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" >
                     <a class="mdl-list__item-secondary-action"><i class="material-icons">star</i></a>
                   </button>
                   欲しい
